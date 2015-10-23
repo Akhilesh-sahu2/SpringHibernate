@@ -44,6 +44,12 @@ public class OrderPersistenceTests {
 		// parent in the item)...
 		session.clear();
 		Order other = (Order) session.get(Order.class, order.getId());
+		
+		for(Item item:other.getItems()){
+		System.out.println("item price : "+item.getPrice());
+		System.out.println("item getProduct : "+item.getProduct());
+		System.out.println("item getId : "+item.getId());
+		}
 		assertEquals(1, other.getItems().size());
 		assertEquals(other, other.getItems().iterator().next().getOrder());
 	}
